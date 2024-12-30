@@ -266,7 +266,7 @@
     <!-- Our Services Title -->
     <div class="text-center mb-4">
       <h2 class="text-3xl font-bold text-gray-800 mb-8">
-        Our Services!
+        Our Services
       </h2>
       <hr class="w-24 h-1 mx-auto border-blue-600 bg-blue-600 rounded mb-12" />
     </div>
