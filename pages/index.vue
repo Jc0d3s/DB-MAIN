@@ -466,85 +466,530 @@
       </div>
     </div>
   </section>
-  <div class="bg-blue-900 text-white flex flex-col items-center justify-center py-2 px-2 rounded-lg shadow-md">
-    <p class="text-2xl font-bold text-center mb-4">
-      If you have any query related investment... we are available 24/7
-    </p>
-    <button
-      class="bg-white text-blue-900 font-medium py-3 px-6 rounded-full shadow hover:bg-gray-100 transition text-lg"
-    >
-      Contact Us
-    </button>
+  <div class="container mx-auto py-10">
+  <!-- Contact Us Section -->
+  <div class="text-center bg-blue-800 text-white py-6">
+    <h2 class="text-xl font-bold">If you have any query related to investment... we are available 24/7</h2>
+    <button class="mt-4 px-6 py-2 bg-white text-blue-800 font-semibold rounded">Contact Us</button>
   </div>
+
+  <!-- Add Space Between Sections -->
+  <div class="mt-12">
+    <h2 class="text-3xl font-bold text-center mb-10">Things You Get</h2>
+  
+    <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\wand-magic-sparkles-solid.svg" alt="Creative Support Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Creative Support</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We transform brands, grow businesses, and tell brand and product stories in the most creative way.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\cloud-arrow-up-solid.svg" alt="Creating Experiences Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Creating Experiences</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We cover a large range of creative platforms and digital projects with one purpose: to create experiences.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\bullseye-solid.svg" alt="Product Consulting Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Product Consulting</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We guide you through the pipelines that generate new products with higher potential and lower risk.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\globe-solid.svg" alt="Business Boosting Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Business Boosting</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We provide energy-efficient and environmentally conservative solutions to our clients to boost their business.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\money-bill-solid.svg" alt="Strategic Approach Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Strategic Approach</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Based on solid strategic framework and real, relevant research, we create prototypes, not presentations.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow">
+          <div class="mb-4">
+            <img src="public\assets\chart-simple-solid.svg" alt="Logistic Consulting Icon" class="h-12 w-12" />
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800">Logistic Consulting</h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We work buy side and sell side to give our clients hard-hitting answers and focus hard on best opportunities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Grid Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 text-center">
+      <div v-for="item in features" :key="item.title" class="space-y-4">
+        <!-- Icon -->
+        <div class="flex justify-center items-center">
+          <component :is="item.icon" class="w-12 h-12 text-blue-500" />
+        </div>
+        <!-- Title -->
+        <h3 class="text-xl font-semibold">{{ item.title }}</h3>
+        <!-- Description -->
+        <p class="text-gray-600" v-html="item.description"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-blue-900 text-white min-h-screen flex items-center justify-center">
+    <div class="bg-blue-800 p-8 rounded-lg shadow-lg w-full max-w-4xl flex flex-col md:flex-row">
+      <!-- Left Section -->
+      <div class="md:w-1/2 p-6 border border-yellow-500 rounded-lg mb-6 md:mb-0 md:mr-6">
+        <h2 class="text-2xl font-bold mb-4">Request a call back</h2>
+        <p class="text-gray-300">
+          Would you like to speak to one of our financial advisers over the phone? Just submit your details, and we’ll be in touch shortly. You can also email us if you would prefer.
+        </p>
+      </div>
+      <!-- Right Section -->
+      <div class="md:w-1/2 bg-blue-700 p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">I would like to discuss:</h3>
+        <form class="space-y-4">
+          <div class="flex space-x-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-1/2 p-3 rounded-lg bg-white text-gray-800"
+            />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              class="w-1/2 p-3 rounded-lg bg-white text-gray-800"
+            />
+          </div>
+          <input
+            type="text"
+            placeholder="Subject"
+            class="w-full p-3 rounded-lg bg-white text-gray-800"
+          />
+          <button
+            type="submit"
+            class="w-full bg-yellow-500 text-blue-900 font-bold py-3 rounded-lg hover:bg-yellow-400 transition"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12">Global Leadership</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div v-for="member in team" :key="member.name" class="text-center">
+        <img :src="member.image" alt="Team Member" class="w-full h-64 object-cover rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold mt-6">{{ member.name }}</h2>
+        <p class="text-gray-500">{{ member.role }}</p>
+        <p class="mt-4 text-gray-700">{{ member.description }}</p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="relative bg-gray-800 text-white h-screen">
+  <!-- Background Section -->
+  <div class="absolute inset-0 flex justify-center items-center">
+    <img
+      src="public/assets/background-15.jpg"
+      alt="Background"
+      class="w-full max-h-[80vh] object-cover opacity-50"
+    />
+  </div>
+
+  <!-- Content Section -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8 lg:px-16">
+    <h1 class="text-4xl lg:text-6xl font-bold mb-8">
+      <ion-icon name="checkmark-done-outline" class="text-yellow-400 align-middle mr-2"></ion-icon>
+      Take the <span class="text-yellow-400">right step</span>,<br />
+      do the big things.
+    </h1>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+      <div>
+        <p class="text-3xl font-bold">52k</p>
+        <p class="text-gray-300">Cases Solved</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">164</p>
+        <p class="text-gray-300">Trained Experts</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">38</p>
+        <p class="text-gray-300">Branches</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold">100%</p>
+        <p class="text-gray-300">Satisfied Clients</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonial Section -->
+<div class="relative max-w-6xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-16">
+  <!-- Testimonial Content -->
+  <div v-for="(testimonial, index) in testimonials" :key="index" v-show="currentIndex === index" class="flex items-center space-x-6">
+    <!-- Image -->
+    <img :src="testimonial.image" alt="Profile Picture" class="w-48 h-48 rounded-full object-cover">
+    <!-- Text -->
+    <div>
+      <p class="text-gray-700 text-lg">{{ testimonial.quote }}</p>
+      <p class="mt-2 font-bold text-gray-900">{{ testimonial.name }}</p>
+      <p class="text-sm text-gray-500">{{ testimonial.position }}</p>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button
+    @click="prevTestimonial"
+    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent text-black p-4 rounded-full shadow-lg hover:bg-gray-300 focus:outline-none "
+  >
+    <span class="text-black text-3xl">
+      &#10094; <!-- Left arrow symbol -->
+    </span>
+  </button>
+
+  <button
+    @click="nextTestimonial"
+    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent text-black p-4 rounded-full shadow-lg hover:bg-gray-300 focus:outline-none "
+  >
+    <span class="text-black text-3xl">
+      &#10095; <!-- Right arrow symbol -->
+    </span>
+  </button>
+</div>
+
+
+<!-- Logos Section -->
+<section class="bg-gray-100 py-16">
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-center">
+    <div v-for="logo in logos" :key="logo.name" class="flex justify-center">
+      <img :src="logo.src" :alt="logo.name" class="h-24 object-contain" />
+    </div>
+  </div>
+</section>
+
+
+<div class="bg-gray-100 py-10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 mb-8">Latest News</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          v-for="(news, index) in newsItems"
+          :key="index"
+          class="bg-white rounded-lg shadow-lg overflow-hidden"
+        >
+          <img
+            :src="news.image"
+            :alt="news.title"
+            class="w-full h-50 object-cover"
+          />
+          <div class="p-6">
+            <h3 class="text-lg font-semibold text-gray-800">{{ news.title }}</h3>
+            <p class="text-sm text-gray-500 mb-4">By {{ news.author }}</p>
+            <p class="text-gray-600 mb-4">{{ news.description }}</p>
+            <a
+              :href="news.link"
+              class="text-blue-600 hover:underline font-semibold flex items-center"
+            >
+              Learn More <span class="ml-2">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-blue-900 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-between">
+        <!-- Signup Section -->
+        <div class="w-full md:w-1/2 lg:w-1/3">
+          <h2 class="text-2xl font-bold">Sign up for email alerts</h2>
+          <p class="mt-2 text-sm">Stay current with our latest insights</p>
+          <div class="mt-4 flex">
+            <input
+              type="email"
+              placeholder="Enter Email Here"
+              class="w-full md:w-auto flex-grow px-4 py-2 rounded-l-md focus:outline-none"
+            />
+            <button
+              class="bg-yellow-500 text-black px-6 py-2 rounded-r-md hover:bg-yellow-600"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="w-full md:w-1/4 lg:w-1/5 mt-8 md:mt-0">
+          <ul>
+            <li class="mb-2"><a href="#" class="hover:underline">Contact Us</a></li>
+            <li class="mb-2"><a href="#" class="hover:underline">FAQ</a></li>
+            <li class="mb-2"><a href="#" class="hover:underline">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#" class="hover:underline">Terms of Use</a></li>
+            <li class="mb-2"><a href="#" class="hover:underline">Global Office</a></li>
+            <li><a href="#" class="hover:underline">Local Office</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="w-full md:w-1/4 lg:w-1/5 mt-8 md:mt-0">
+          <ul>
+            <li class="mb-2 flex items-center">
+              <span class="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center mr-2">
+                <i class="fab fa-linkedin"></i>
+              </span>
+              <a href="#" class="hover:underline">Linkedin</a>
+            </li>
+            <li class="mb-2 flex items-center">
+              <span class="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center mr-2">
+                <i class="fab fa-twitter"></i>
+              </span>
+              <a href="#" class="hover:underline">Twitter</a>
+            </li>
+            <li class="mb-2 flex items-center">
+              <span class="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center mr-2">
+                <i class="fab fa-facebook"></i>
+              </span>
+              <a href="#" class="hover:underline">Facebook</a>
+            </li>
+            <li class="flex items-center">
+              <span class="w-6 h-6 bg-blue-800 rounded-full flex items-center justify-center mr-2">
+                <i class="fab fa-google-plus"></i>
+              </span>
+              <a href="#" class="hover:underline">Google+</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Footer Bottom -->
+      <div class="mt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+  <!-- Left: Logo -->
+  <div class="flex items-center">
+    <img src="public/assets/logo-light.png" alt="Logo" class="h-8 mr-2" />
+  </div>
+
+  <!-- Center: Copyright -->
+  <div class="mt-4 md:mt-0">
+    <p>© Copyright 2018 Elixir Inc.</p>
+  </div>
+
+  <!-- Right: Designed by -->
+  <div class="mt-4 md:mt-0">
+    <p>Designed by Themewagon</p>
+  </div>
+</div>
+</div>
+</footer>
+
 
 </template>
 
 <script>
 export default {
-  name: "ImageSection",
+  name: "CombinedComponents",
   data() {
     return {
-      currentHeader: 0, // Index of the current header
-      showAnimation: true, // Control the animation trigger
+      // Data for Hero Section
+      currentHeader: 0,
       headers: [
         {
-          image: '/assets/header-5.jpg', // Correct path for your project
-          title: 'Expert Consultants',
-          description: 'Over 10 years of experience in helping clients<br>find comprehensive solutions.',
-          button1: { text: 'Read More', link: '#' },
-          button2: { text: 'Contact Us', link: 'contact.html' },
-          textClass: 'text-black',
+          image: "/assets/header-5.jpg",
+          title: "Expert Consultants",
+          description:
+            "Over 10 years of experience in helping clients<br>find comprehensive solutions.",
+          button1: { text: "Read More", link: "#" },
+          button2: { text: "Contact Us", link: "contact.html" },
+          textClass: "text-white",
         },
         {
-          image: '/assets/header-1.jpg', // Correct path for your project
-          title: 'Growth Partners',
-          description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance.',
-          button1: { text: 'Our Services', link: 'services.html' },
-          button2: { text: 'Get Started', link: 'start.html' },
-          textClass: 'text-black',
+          image: "/assets/header-1.jpg",
+          title: "Growth Partners",
+          description:
+            "Connect with top consultants hand-picked by<br> Elixir consulting and finance.",
+          button1: { text: "Our Services", link: "services.html" },
+          button2: { text: "Get Started", link: "start.html" },
+          textClass: "text-white",
         },
         {
-          image: '/assets/header-6.jpg', // Correct path for your project
-          title: 'Helping Leaders',
-          description: 'We look forward to help you in taking your <br>company to new height.',
-          button1: { text: 'Learn More', link: '#' },
-          button2: { text: 'Join Us', link: 'join.html' },
-          textClass: 'text-black',
+          image: "/assets/header-6.jpg",
+          title: "Helping Leaders",
+          description:
+            "We look forward to help you in taking your <br>company to new height.",
+          button1: { text: "Learn More", link: "#" },
+          button2: { text: "Join Us", link: "join.html" },
+          textClass: "text-white",
+        },
+      ],
+
+      // Data for Testimonials Section
+      currentIndex: 0,
+      testimonials: [
+        {
+          image: "/assets/client1.png",
+          quote:
+            "As a sales gamification company, we were skeptical to work with a consultant to optimize our sales emails, but Elixir was highly recommended by many other Y-Combinator startups we knew.",
+          name: "David Beckham",
+          position: "Chairman, Harmony Corporation",
+        },
+        {
+          image: "/assets/client2.png",
+          quote:
+            "Writing case studies was a daunting task for us. We didn’t know where to begin or what questions to ask. Elixir team did everything with almost no effort from me!",
+          name: "Maria Sharapova",
+          position: "Managing Director, Themewagon Inc.",
+        },
+        {
+          image: "/assets/client3.png",
+          quote:
+            "Their work on our website and Internet marketing has made a significant difference to our business. We've seen a 425% increase in quote requests from the website which has been pretty remarkable - but I'd always like to see more!",
+          name: "Michael Clarke",
+          position: "CEO, A.E.T Institute",
+        },
+      ],
+
+      // Data for Logo Section
+      logos: [
+        { name: "Partnerco", src: "/assets/logo1.png" },
+        { name: "TVC Marketing", src: "/assets/logo2.png" },
+        { name: "Arcade", src: "/assets/logo3.png" },
+        { name: "Bearbrand", src: "/assets/logo4.png" },
+        { name: "Haircuts & Beards", src: "/assets/logo5.png" },
+        { name: "Vice", src: "/assets/logo6.png" },
+      ],
+
+      // Data for Latest News Section
+      newsItems: [
+        {
+          image: "/assets/9.jpg",
+          title: "Tax impacts of lease mean accounting change",
+          author: "Paul O'Sullivan",
+          description:
+            "HMRC released a consultation document to flag some potential tax impacts that a forthcoming change...",
+          link: "#",
+        },
+        {
+          image: "/assets/10.jpg",
+          title: "What Brexit means for data protection law",
+          author: "Enrico Ambrosi",
+          description:
+            "Assuming that the referendum is not ignored completely, there are two possible futures for the UK...",
+          link: "#",
+        },
+        {
+          image: "/assets/14.jpg",
+          title: "The growing menace of social engineering fraud",
+          author: "Robson",
+          description:
+            "Social engineering involves the collection of information from various sources about a target...",
+          link: "#",
+        },
+      ],
+
+      // Data for Team Section
+      team: [
+        {
+          name: 'Reenal Scott',
+          role: 'Advertising Consultant',
+          description: 'Reenal Scott is the Founder and CEO of Elixir, which he started from his dorm room in 2013 with 3 people only.',
+          image: '/assets/portrait-1.jpg',
+        },
+        {
+          name: 'Lily Anderson',
+          role: 'Activation Consultant',
+          description: 'Lily leads Elixir UK and oversees the company’s Customer Operations teams supporting millions of users.',
+          image: '/assets/portrait-6.jpg',
+        },
+        {
+          name: 'Thomas Anderson',
+          role: 'Change Management Consultant',
+          description: 'As the VP of People, Thomas’s focus lies in the development and optimization of talent retention.',
+          image: '/assets/portrait-3.jpg',
+        },
+        {
+          name: 'Legartha Mantana',
+          role: 'Brand Management Consultant',
+          description: 'As General Counsel of Elixir, Tony oversees global legal activities and policies across all aspects.',
+          image: '/assets/portrait-4.jpg',
+        },
+        {
+          name: 'John Snow',
+          role: 'Business Analyst',
+          description: 'John has overseen the meteoric growth while protecting scaling its uniquely creative and culture.',
+          image: '/assets/portrait-5.jpg',
+        },
+        {
+          name: 'Ragner Lothbrok',
+          role: 'Business Consultant',
+          description: 'Ragner, SVP of Engineering, oversees Elixir’s vast engineering organization which drives the core programming.',
+          image: '/assets/portrait-7.jpg',
         },
       ],
     };
   },
   methods: {
+    // Hero Section Methods
     nextHeader() {
       this.currentHeader = (this.currentHeader + 1) % this.headers.length;
-      this.triggerPopUp();
     },
     previousHeader() {
       this.currentHeader =
         (this.currentHeader - 1 + this.headers.length) % this.headers.length;
-      this.triggerPopUp();
     },
-    triggerPopUp() {
-      this.showAnimation = false; // Disable animation
-      this.$nextTick(() => {
-        this.showAnimation = true; // Enable animation after DOM update
-      });
+
+    // Testimonials Section Methods
+    prevTestimonial() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.testimonials.length) %
+        this.testimonials.length;
     },
-  
-},name: "FeatureSection",
-name: "OurServices",
-name: "SupportOptions",
-name: "WhyChooseElixir",
-name: "InvestmentBanner",
+    nextTestimonial() {
+      this.currentIndex =
+        (this.currentIndex + 1) % this.testimonials.length;
+    },
+  },
 };
-
 </script>
-
 
 <style scoped>
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
 </style>
 
