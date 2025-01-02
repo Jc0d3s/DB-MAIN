@@ -163,7 +163,7 @@ export default {
   }
 
   .max-w-xs {
-    width: 100%; /* Use full width for mobile screens */
+    width: 100%; /* Use full width for mobile screens! */
   }
 }
 </style>
