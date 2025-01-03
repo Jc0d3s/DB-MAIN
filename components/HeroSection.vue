@@ -94,7 +94,7 @@ const headers = ref<Header[]>([
   {
     image: '/assets/header-1.jpg',
     title: 'Growth Partners',
-    description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance.',
+    description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance..',
   },
   {
     image: '/assets/header-6.jpg',
