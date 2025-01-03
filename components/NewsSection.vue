@@ -1,3 +1,40 @@
+<script>
+export default {
+  name: "NewsSection",
+  data() {
+    return {
+      newsItems: [
+        {
+          image: "/assets/9.jpg",
+          title: "Tax impacts of lease mean accounting change",
+          author: "Paul O'Sullivan",
+          description:
+            "HMRC released a consultation document to flag some potential tax impacts that a forthcoming change...",
+          link: "#",
+        },
+        {
+          image: "/assets/10.jpg",
+          title: "What Brexit means for data protection law",
+          author: "Enrico Ambrosi",
+          description:
+            "Assuming that the referendum is not ignored completely, there are two possible futures for the UK...",
+          link: "#",
+        },
+        {
+          image: "/assets/14.jpg",
+          title: "The growing menace of social engineering fraud",
+          author: "Robson",
+          description:
+            "Social engineering involves the collection of information from various sources about a target...",
+          link: "#",
+        },
+      ],
+    };
+  },
+};
+</script>
+
+
 <template>
   <div class="bg-gray-100 py-8 sm:py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,41 +75,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "NewsSection",
-  data() {
-    return {
-      newsItems: [
-        {
-          image: "/assets/9.jpg",
-          title: "Tax impacts of lease mean accounting change",
-          author: "Paul O'Sullivan",
-          description:
-            "HMRC released a consultation document to flag some potential tax impacts that a forthcoming change...",
-          link: "#",
-        },
-        {
-          image: "/assets/10.jpg",
-          title: "What Brexit means for data protection law",
-          author: "Enrico Ambrosi",
-          description:
-            "Assuming that the referendum is not ignored completely, there are two possible futures for the UK...",
-          link: "#",
-        },
-        {
-          image: "/assets/14.jpg",
-          title: "The growing menace of social engineering fraud",
-          author: "Robson",
-          description:
-            "Social engineering involves the collection of information from various sources about a target...",
-          link: "#",
-        },
-      ],
-    };
-  },
-};
-</script>
+
 
 <style scoped>
 /* Optional custom styling */

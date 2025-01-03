@@ -1,3 +1,20 @@
+<script setup>
+import { ref } from 'vue';
+
+const quickLinks = ref([
+  { text: "Contact Us", href: "#" },
+  { text: "FAQ", href: "#" },
+  { text: "Privacy Policy", href: "#" },
+  { text: "Terms of Use", href: "#" },
+]);
+
+const socialLinks = ref([
+  { text: "LinkedIn", href: "#", icon: "fab fa-linkedin" },
+  { text: "Twitter", href: "#", icon: "fab fa-twitter" },
+]);
+</script>
+
+
 <template>
   <footer class="bg-blue-900 text-white py-8">
     <div class="container mx-auto px-4">
@@ -50,21 +67,7 @@
   </footer>
 </template>
 
-<script setup>
-import { ref } from 'vue';
 
-const quickLinks = ref([
-  { text: "Contact Us", href: "#" },
-  { text: "FAQ", href: "#" },
-  { text: "Privacy Policy", href: "#" },
-  { text: "Terms of Use", href: "#" },
-]);
-
-const socialLinks = ref([
-  { text: "LinkedIn", href: "#", icon: "fab fa-linkedin" },
-  { text: "Twitter", href: "#", icon: "fab fa-twitter" },
-]);
-</script>
 
 <style scoped>
 /* Optional: Add any additional styling if needed */

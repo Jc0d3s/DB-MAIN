@@ -1,3 +1,18 @@
+<script>
+export default {
+  name: "ServicesSection",
+  data() {
+    return {
+      services: [
+        { icon: "📊", title: "Business Consulting", description: "Solution for every business problem!" },
+        { icon: "💡", title: "Market Research", description: "Know the market before taking steps." },
+        { icon: "🎧", title: "Quality Services", description: "Unparalleled service from start to finish." },
+      ],
+    };
+  },
+};
+</script>
+
 <template>
   <section class="text-center py-10 bg-gray-50">
     <!-- Intro Section -->
@@ -91,20 +106,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ServicesSection",
-  data() {
-    return {
-      services: [
-        { icon: "📊", title: "Business Consulting", description: "Solution for every business problem!" },
-        { icon: "💡", title: "Market Research", description: "Know the market before taking steps." },
-        { icon: "🎧", title: "Quality Services", description: "Unparalleled service from start to finish." },
-      ],
-    };
-  },
-};
-</script>
+
 
 <style scoped>
 /* General Styles */

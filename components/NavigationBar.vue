@@ -1,3 +1,20 @@
+<script lang="ts">
+import { ref } from 'vue';
+
+export default {
+  name: 'NavigationBar',
+  setup() {
+    const isMobileMenuOpen = ref(false);
+
+    const toggleMobileMenu = () => {
+      isMobileMenuOpen.value = !isMobileMenuOpen.value;
+    };
+
+    return { isMobileMenuOpen, toggleMobileMenu };
+  },
+};
+</script>
+
 <template>
   <nav class="bg-white bg-opacity-50 shadow-md sticky top-0 z-50 backdrop-blur-sm">
     <div class="container mx-auto px-4">
@@ -8,12 +25,39 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button class="lg:hidden text-[#2B3B5C] focus:outline-none" @click="isMobileMenuOpen = !isMobileMenuOpen">
+        <button 
+          class="lg:hidden text-[#2B3B5C] focus:outline-none" 
+          @click="toggleMobileMenu"
+        >
           <i class="fas" :class="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
         </button>
 
         <!-- Navigation Links -->
-        <div :class="{'hidden': !isMobileMenuOpen}" class="lg:flex flex-col lg:flex-row lg:items-center gap-8 w-full lg:w-auto bg-white lg:bg-transparent lg:shadow-none shadow-lg p-4 lg:p-0 absolute lg:relative top-full left-0 lg:top-auto lg:left-auto absolute lg:right-56">
+        <div 
+          :class="{
+            'hidden': !isMobileMenuOpen,
+            'lg:flex': true,
+            'flex-col': true,
+            'lg:flex-row': true,
+            'lg:items-center': true,
+            'gap-8': true,
+            'w-full': true,
+            'lg:w-auto': true,
+            'bg-white': true,
+            'lg:bg-transparent': true,
+            'lg:shadow-none': true,
+            'shadow-lg': true,
+            'p-4': true,
+            'lg:p-0': true,
+            'absolute': true,
+            'lg:relative': true,
+            'top-full': true,
+            'left-0': true,
+            'lg:top-auto': true,
+            'lg:left-auto': true,
+            'lg:right-56': true
+          }"
+        >
           <!-- Home Dropdown -->
           <div class="group relative">
             <button class="py-2 lg:py-4 flex items-center">
@@ -81,16 +125,7 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: "NavigationBar",
-  data() {
-    return {
-      isMobileMenuOpen: false,
-    };
-  },
-};
-</script>
+
 
 <style scoped>
 /* Dropdown visibility */

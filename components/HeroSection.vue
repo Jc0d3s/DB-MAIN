@@ -1,3 +1,55 @@
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+// Define the structure of a Header using an interface
+interface Header {
+  image: string;
+  title: string;
+  description: string;
+}
+
+// List of header data
+const headers = ref<Header[]>([
+  {
+    image: '/assets/header-5.jpg',
+    title: 'Expert Consultants',
+    description: 'Over 10 years of experience in helping clients<br>find comprehensive solutions.',
+  },
+  {
+    image: '/assets/header-1.jpg',
+    title: 'Growth Partners',
+    description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance.',
+  },
+  {
+    image: '/assets/header-6.jpg',
+    title: 'Helping Leaders',
+    description: 'We look forward to helping you in taking <br>your company to new heights.',
+  },
+]);
+
+const currentHeader = ref(0);
+
+// Functions to navigate between headers
+const nextHeader = () => {
+  currentHeader.value = (currentHeader.value + 1) % headers.value.length;
+};
+
+const previousHeader = () => {
+  currentHeader.value = (currentHeader.value - 1 + headers.value.length) % headers.value.length;
+};
+
+// Auto-slide functionality
+let autoSlide: ReturnType<typeof setInterval>;
+onMounted(() => {
+  autoSlide = setInterval(nextHeader, 4000);
+});
+
+onBeforeUnmount(() => {
+  clearInterval(autoSlide);
+});
+</script>
+
+
 <template>
   <div class="relative -mt-12 z-10">
     <!-- Background Slider -->
@@ -61,7 +113,7 @@
 
     <!-- Navigation Buttons -->
     <div 
-      class="absolute top-1/2 left-4 transform  -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
+      class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
       @click="previousHeader"
     >
       <i class="fas fa-chevron-left"></i>
@@ -75,53 +127,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-
-// Define the structure of a Header using an interface
-interface Header {
-  image: string;
-  title: string;
-  description: string;
-}
-
-const headers = ref<Header[]>([
-  {
-    image: '/assets/header-5.jpg',
-    title: 'Expert Consultants',
-    description: 'Over 10 years of experience in helping clients<br>find comprehensive solutions.',
-  },
-  {
-    image: '/assets/header-1.jpg',
-    title: 'Growth Partners',
-    description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance..',
-  },
-  {
-    image: '/assets/header-6.jpg',
-    title: 'Helping Leaders',
-    description: 'We look forward to helping you in taking <br>your company to new heights.',
-  },
-]);
-
-const currentHeader = ref(0);
-
-const nextHeader = () => {
-  currentHeader.value = (currentHeader.value + 1) % headers.value.length;
-};
-
-const previousHeader = () => {
-  currentHeader.value = (currentHeader.value - 1 + headers.value.length) % headers.value.length;
-};
-
-let autoSlide: ReturnType<typeof setInterval>;
-onMounted(() => {
-  autoSlide = setInterval(nextHeader, 4000);
-});
-
-onBeforeUnmount(() => {
-  clearInterval(autoSlide);
-});
-</script>
 
 
 <style scoped>
@@ -182,4 +187,3 @@ a {
   }
 }
 </style>
-

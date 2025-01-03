@@ -1,3 +1,64 @@
+<script>
+export default {
+  name: "TestimonialSection",
+  data() {
+    return {
+      currentIndex: 0,
+      testimonials: [
+        {
+          image: "/assets/client1.png",
+          quote:
+            "As a sales gamification company, we were skeptical to work with a consultant to optimize our sales emails, but Elixir was highly recommended by many other Y-Combinator startups we knew.",
+          name: "David Beckham",
+          position: "Chairman, Harmony Corporation",
+        },
+        {
+          image: "/assets/client2.png",
+          quote:
+            "Writing case studies was a daunting task for us. We didn’t know where to begin or what questions to ask. Elixir team did everything with almost no effort from me!",
+          name: "Maria Sharapova",
+          position: "Managing Director, Themewagon Inc.",
+        },
+        {
+          image: "/assets/client3.png",
+          quote:
+            "Their work on our website and Internet marketing has made a significant difference to our business. We've seen a 425% increase in quote requests from the website which has been pretty remarkable - but I'd always like to see more!",
+          name: "Michael Clarke",
+          position: "CEO, A.E.T Institute",
+        },
+      ],
+      intervalId: null, // ID for the interval
+    };
+  },
+  methods: {
+    prevTestimonial() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.testimonials.length) % this.testimonials.length;
+    },
+    nextTestimonial() {
+      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    },
+    startAutoCycle() {
+      this.intervalId = setInterval(() => {
+        this.nextTestimonial();
+      }, 4000); // Switch slides every 4 seconds
+    },
+    stopAutoCycle() {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+      }
+    },
+  },
+  mounted() {
+    this.startAutoCycle(); // Start auto-cycling on component mount
+  },
+  beforeDestroy() {
+    this.stopAutoCycle(); // Clear the interval when component is destroyed
+  },
+};
+</script>
+
 <template>
   <div>
     <!-- Hero Section -->
@@ -83,66 +144,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "TestimonialSection",
-  data() {
-    return {
-      currentIndex: 0,
-      testimonials: [
-        {
-          image: "/assets/client1.png",
-          quote:
-            "As a sales gamification company, we were skeptical to work with a consultant to optimize our sales emails, but Elixir was highly recommended by many other Y-Combinator startups we knew.",
-          name: "David Beckham",
-          position: "Chairman, Harmony Corporation",
-        },
-        {
-          image: "/assets/client2.png",
-          quote:
-            "Writing case studies was a daunting task for us. We didn’t know where to begin or what questions to ask. Elixir team did everything with almost no effort from me!",
-          name: "Maria Sharapova",
-          position: "Managing Director, Themewagon Inc.",
-        },
-        {
-          image: "/assets/client3.png",
-          quote:
-            "Their work on our website and Internet marketing has made a significant difference to our business. We've seen a 425% increase in quote requests from the website which has been pretty remarkable - but I'd always like to see more!",
-          name: "Michael Clarke",
-          position: "CEO, A.E.T Institute",
-        },
-      ],
-      intervalId: null, // ID for the interval
-    };
-  },
-  methods: {
-    prevTestimonial() {
-      this.currentIndex =
-        (this.currentIndex - 1 + this.testimonials.length) % this.testimonials.length;
-    },
-    nextTestimonial() {
-      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
-    },
-    startAutoCycle() {
-      this.intervalId = setInterval(() => {
-        this.nextTestimonial();
-      }, 4000); // Switch slides every 4 seconds
-    },
-    stopAutoCycle() {
-      if (this.intervalId) {
-        clearInterval(this.intervalId);
-        this.intervalId = null;
-      }
-    },
-  },
-  mounted() {
-    this.startAutoCycle(); // Start auto-cycling on component mount
-  },
-  beforeDestroy() {
-    this.stopAutoCycle(); // Clear the interval when component is destroyed
-  },
-};
-</script>
+
 
 
 <style scoped>
