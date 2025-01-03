@@ -30,7 +30,7 @@ export default {
           <img
             alt="Professional team"
             class="rounded-lg shadow-lg max-w-full h-auto mx-auto md:mx-0"
-            src="C:/Users/LENOVO/Documents/JeevanTask1/JeevanTask1/public/assets/why-choose-us.jpg"
+            src="\assets\why-choose-us.jpg"
           />
         </div>
 
