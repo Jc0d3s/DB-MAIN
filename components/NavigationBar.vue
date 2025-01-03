@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between">
         <!-- Logo -->
         <div class="py-4 mr-4 ml-4 lg:ml-12">
-          <img src="/assets/logo-dark.png" alt="Elixir" class="h-8">
+          <img src="/assets/logo-dark.png" alt="Elixir" class="h-8 ml-4">
         </div>
 
         <!-- Mobile Menu Button -->
@@ -13,7 +13,7 @@
         </button>
 
         <!-- Navigation Links -->
-        <div :class="{'hidden': !isMobileMenuOpen}" class="lg:flex flex-col lg:flex-row lg:items-center gap-8 w-full lg:w-auto bg-white lg:bg-transparent lg:shadow-none shadow-lg p-4 lg:p-0 absolute lg:relative top-full left-0 lg:top-auto lg:left-auto">
+        <div :class="{'hidden': !isMobileMenuOpen}" class="lg:flex flex-col lg:flex-row lg:items-center gap-8 w-full lg:w-auto bg-white lg:bg-transparent lg:shadow-none shadow-lg p-4 lg:p-0 absolute lg:relative top-full left-0 lg:top-auto lg:left-auto absolute lg:right-56">
           <!-- Home Dropdown -->
           <div class="group relative">
             <button class="py-2 lg:py-4 flex items-center">
