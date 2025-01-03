@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'ContactInfoBar',
+});
+</script>
+
 <template>
   <div class="bg-[#2B3B5C] text-white text-sm py-4">
     <div class="container mx-auto px-4">
@@ -21,13 +29,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "ContactInfoBar",
-});
-</script>
 
 <style scoped>
 /* Adjustments for mobile responsiveness */

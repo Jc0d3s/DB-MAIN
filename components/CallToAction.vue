@@ -1,3 +1,52 @@
+<script>
+export default {
+  name: "CallToAction",
+  data() {
+    return {
+      cards: [
+        {
+          icon: "/assets/wand-magic-sparkles-solid.svg",
+          title: "Creative Support",
+          description:
+            "We transform brands, grow businesses, and tell brand and product stories in the most creative way.",
+        },
+        {
+          icon: "/assets/cloud-arrow-up-solid.svg",
+          title: "Creating Experiences",
+          description:
+            "We cover a large range of creative platforms and digital projects with one purpose: to create experiences.",
+        },
+        {
+          icon: "/assets/bullseye-solid.svg",
+          title: "Product Consulting",
+          description:
+            "We guide you through the pipelines that generate new products with higher potential and lower risk.",
+        },
+        {
+          icon: "/assets/globe-solid.svg",
+          title: "Business Boosting",
+          description:
+            "We provide energy-efficient and environmentally conservative solutions to our clients to boost their business.",
+        },
+        {
+          icon: "/assets/money-bill-solid.svg",
+          title: "Strategic Approach",
+          description:
+            "Based on a solid strategic framework and real, relevant research, we create prototypes, not presentations.",
+        },
+        {
+          icon: "/assets/chart-simple-solid.svg",
+          title: "Logistic Consulting",
+          description:
+            "We work buy side and sell side to give our clients hard-hitting answers and focus hard on best opportunities.",
+        },
+      ],
+    };
+  },
+};
+</script>
+
+
 <template>
   <div class="mt-12">
     <h2 class="text-3xl font-bold text-center mb-10">Things You Get</h2>
@@ -72,53 +121,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "CallToAction",
-  data() {
-    return {
-      cards: [
-        {
-          icon: "/assets/wand-magic-sparkles-solid.svg",
-          title: "Creative Support",
-          description:
-            "We transform brands, grow businesses, and tell brand and product stories in the most creative way.",
-        },
-        {
-          icon: "/assets/cloud-arrow-up-solid.svg",
-          title: "Creating Experiences",
-          description:
-            "We cover a large range of creative platforms and digital projects with one purpose: to create experiences.",
-        },
-        {
-          icon: "/assets/bullseye-solid.svg",
-          title: "Product Consulting",
-          description:
-            "We guide you through the pipelines that generate new products with higher potential and lower risk.",
-        },
-        {
-          icon: "/assets/globe-solid.svg",
-          title: "Business Boosting",
-          description:
-            "We provide energy-efficient and environmentally conservative solutions to our clients to boost their business.",
-        },
-        {
-          icon: "/assets/money-bill-solid.svg",
-          title: "Strategic Approach",
-          description:
-            "Based on a solid strategic framework and real, relevant research, we create prototypes, not presentations.",
-        },
-        {
-          icon: "/assets/chart-simple-solid.svg",
-          title: "Logistic Consulting",
-          description:
-            "We work buy side and sell side to give our clients hard-hitting answers and focus hard on best opportunities.",
-        },
-      ],
-    };
-  },
-};
-</script>
+
 
 <style scoped>
 /* General Styles */

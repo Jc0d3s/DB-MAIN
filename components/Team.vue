@@ -1,25 +1,3 @@
-<template>
-  <div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-center mb-12">Global Leadership</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div
-        v-for="member in team"
-        :key="member.name"
-        class="text-center bg-white p-6 rounded-lg shadow-md"
-      >
-        <img
-          :src="member.image"
-          alt="Team Member"
-          class="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <h2 class="text-2xl font-bold mt-4">{{ member.name }}</h2>
-        <p class="text-gray-500">{{ member.role }}</p>
-        <p class="mt-4 text-gray-700">{{ member.description }}</p>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   name: "Team",
@@ -70,6 +48,30 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12">Global Leadership</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div
+        v-for="member in team"
+        :key="member.name"
+        class="text-center bg-white p-6 rounded-lg shadow-md"
+      >
+        <img
+          :src="member.image"
+          alt="Team Member"
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <h2 class="text-2xl font-bold mt-4">{{ member.name }}</h2>
+        <p class="text-gray-500">{{ member.role }}</p>
+        <p class="mt-4 text-gray-700">{{ member.description }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+
 
 
 <style scoped>

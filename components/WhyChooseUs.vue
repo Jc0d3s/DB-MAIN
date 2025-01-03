@@ -1,3 +1,19 @@
+<script>
+export default {
+  name: "WhyChooseUs",
+  data() {
+    return {
+      reasons: [
+        { icon: "💼", title: "We Are Professional", description: "We train and encourage marketplace leaders." },
+        { icon: "🎨", title: "We Are Creative", description: "We create unique strategies tailored to your business." },
+        { icon: "⏰", title: "24/7 Great Support", description: "Our team is always available to guide you." },
+      ],
+    };
+  },
+};
+</script>
+
+
 <template>
   <section class="bg-gray-50 py-12">
     <div class="container mx-auto px-6">
@@ -82,20 +98,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "WhyChooseUs",
-  data() {
-    return {
-      reasons: [
-        { icon: "💼", title: "We Are Professional", description: "We train and encourage marketplace leaders." },
-        { icon: "🎨", title: "We Are Creative", description: "We create unique strategies tailored to your business." },
-        { icon: "⏰", title: "24/7 Great Support", description: "Our team is always available to guide you." },
-      ],
-    };
-  },
-};
-</script>
+
 
 <style scoped>
 /* General Styles */
