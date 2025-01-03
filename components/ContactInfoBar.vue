@@ -21,8 +21,22 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "ContactInfoBar",
-};
+});
 </script>
+
+<style scoped>
+/* Adjustments for mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem; /* Add extra padding for smaller screens */
+  }
+  .text-sm {
+    font-size: 0.875rem; /* Adjust font size for better readability */
+  }
+}
+</style>

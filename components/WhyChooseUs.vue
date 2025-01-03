@@ -8,18 +8,18 @@
       <div class="border-t-4 border-blue-700 w-16 mx-auto mb-12"></div>
 
       <!-- Content -->
-      <div class="flex flex-col md:flex-row md:space-x-8">
+      <div class="flex flex-col md:flex-row md:space-x-8 ">
         <!-- Image Section -->
         <div class="flex-1 mb-8 md:mb-0">
           <img
             alt="Professional team"
-            class="rounded-lg shadow-lg max-w-full h-auto mx-auto"
+            class="rounded-lg shadow-lg max-w-full h-auto mx-auto md:mx-0"
             src="C:/Users/LENOVO/Documents/JeevanTask1/JeevanTask1/public/assets/why-choose-us.jpg"
           />
         </div>
 
         <!-- Text Section -->
-        <div class="flex-1 space-y-8">
+        <div class="flex-1 space-y-8 md:space-y-20">
           <!-- Professional -->
           <div class="flex items-start space-x-4">
             <div class="text-blue-700">

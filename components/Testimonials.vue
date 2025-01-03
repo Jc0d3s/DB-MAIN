@@ -112,6 +112,7 @@ export default {
           position: "CEO, A.E.T Institute",
         },
       ],
+      intervalId: null, // ID for the interval
     };
   },
   methods: {
@@ -122,9 +123,27 @@ export default {
     nextTestimonial() {
       this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
     },
+    startAutoCycle() {
+      this.intervalId = setInterval(() => {
+        this.nextTestimonial();
+      }, 4000); // Switch slides every 4 seconds
+    },
+    stopAutoCycle() {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+      }
+    },
+  },
+  mounted() {
+    this.startAutoCycle(); // Start auto-cycling on component mount
+  },
+  beforeDestroy() {
+    this.stopAutoCycle(); // Clear the interval when component is destroyed
   },
 };
 </script>
+
 
 <style scoped>
 /* General Styles */

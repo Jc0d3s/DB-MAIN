@@ -19,7 +19,7 @@
         >
           <h1
             v-if="headers[currentHeader]"
-            key="header-title-{{ currentHeader }}"
+            :key="`header-title-${currentHeader}`"
             class="text-[#2A3855] text-[67.34px] sm:text-[36px] font-bold mb-2"
             style="font-family: 'Montserrat', sans-serif; line-height: 1.2;"
           >
@@ -34,7 +34,7 @@
         >
           <p
             v-if="headers[currentHeader]"
-            key="header-description-{{ currentHeader }}"
+            :key="`header-description-${currentHeader}`"
             class="text-[#2A3855] text-[28.43px] sm:text-[18px] mb-12"
             style="font-family: 'Open Sans', sans-serif; line-height: 1.4;"
             v-html="headers[currentHeader].description"
@@ -61,13 +61,13 @@
 
     <!-- Navigation Buttons -->
     <div 
-      class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+      class="absolute top-1/2 left-4 transform  -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
       @click="previousHeader"
     >
       <i class="fas fa-chevron-left"></i>
     </div>
     <div 
-      class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+      class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
       @click="nextHeader"
     >
       <i class="fas fa-chevron-right"></i>
@@ -75,47 +75,54 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HeroSection",
-  data() {
-    return {
-      currentHeader: 0,
-      headers: [
-        {
-          image: "/assets/header-5.jpg",
-          title: "Expert Consultants",
-          description: "Over 10 years of experience in helping clients<br>find comprehensive solutions.",
-        },
-        {
-          image: "/assets/header-1.jpg",
-          title: "Growth Partners",
-          description: "Connect with top consultants hand-picked by<br> Elixir consulting and finance.",
-        },
-        {
-          image: "/assets/header-6.jpg",
-          title: "Helping Leaders",
-          description: "We look forward to helping you in taking <br>your company to new heights.",
-        },
-      ],
-    };
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+// Define the structure of a Header using an interface
+interface Header {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const headers = ref<Header[]>([
+  {
+    image: '/assets/header-5.jpg',
+    title: 'Expert Consultants',
+    description: 'Over 10 years of experience in helping clients<br>find comprehensive solutions.',
   },
-  methods: {
-    nextHeader() {
-      this.currentHeader = (this.currentHeader + 1) % this.headers.length;
-    },
-    previousHeader() {
-      this.currentHeader = (this.currentHeader - 1 + this.headers.length) % this.headers.length;
-    },
+  {
+    image: '/assets/header-1.jpg',
+    title: 'Growth Partners',
+    description: 'Connect with top consultants hand-picked by<br> Elixir consulting and finance.',
   },
-  mounted() {
-    this.autoSlide = setInterval(this.nextHeader, 4000); // Automatically go to the next slide every 4 seconds
+  {
+    image: '/assets/header-6.jpg',
+    title: 'Helping Leaders',
+    description: 'We look forward to helping you in taking <br>your company to new heights.',
   },
-  beforeDestroy() {
-    clearInterval(this.autoSlide); // Clear the interval when the component is destroyed
-  },
+]);
+
+const currentHeader = ref(0);
+
+const nextHeader = () => {
+  currentHeader.value = (currentHeader.value + 1) % headers.value.length;
 };
+
+const previousHeader = () => {
+  currentHeader.value = (currentHeader.value - 1 + headers.value.length) % headers.value.length;
+};
+
+let autoSlide: ReturnType<typeof setInterval>;
+onMounted(() => {
+  autoSlide = setInterval(nextHeader, 4000);
+});
+
+onBeforeUnmount(() => {
+  clearInterval(autoSlide);
+});
 </script>
+
 
 <style scoped>
 /* Default Styles */
@@ -169,10 +176,10 @@ a {
     font-size: 14px; /* Same button text size as tablets */
     padding: 0.5rem 1rem; /* Adjust button padding for mobile */
   }
-}
-
-/* Z-Index to Fix Overlap Issues */
-.relative {
-  z-index: 10; /* Ensure the hero section appears above other content */
+  /* Add z-index to ensure buttons are above dropdown */
+  .z-50 {
+    z-index: 100;
+  }
 }
 </style>
+

@@ -97,7 +97,7 @@ export default {
   data() {
     return {
       services: [
-        { icon: "📊", title: "Business Consulting", description: "Solution for every business problem." },
+        { icon: "📊", title: "Business Consulting", description: "Solution for every business problem!" },
         { icon: "💡", title: "Market Research", description: "Know the market before taking steps." },
         { icon: "🎧", title: "Quality Services", description: "Unparalleled service from start to finish." },
       ],
@@ -163,7 +163,7 @@ export default {
   }
 
   .max-w-xs {
-    width: 100%; /* Use full width for mobile screens */
+    width: 100%; /* Use full width for mobile screens! */
   }
 }
 </style>
