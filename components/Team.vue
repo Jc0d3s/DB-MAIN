@@ -1,4 +1,31 @@
+<template>
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12 animate-heading text-gray-900">
+      Global Leadership
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div
+        v-for="member in team"
+        :key="member.name"
+        class="text-center bg-white p-6 rounded-lg shadow-md animate-card"
+      >
+        <img
+          :src="member.image"
+          alt="Team Member"
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <h2 class="text-2xl font-bold mt-4">{{ member.name }}</h2>
+        <p class="text-gray-500">{{ member.role }}</p>
+        <p class="mt-4 text-gray-700">{{ member.description }}</p>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
+import { nextTick } from "vue";
+import { gsap } from "gsap";
+
 export default {
   name: "Team",
   data() {
@@ -46,92 +73,65 @@ export default {
       ],
     };
   },
+  mounted() {
+    nextTick(() => {
+      const animateSection = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+
+            if (target.classList.contains("animate-heading")) {
+              gsap.from(target, { opacity: 0, y: -30, duration: 1, ease: "power3.out",onComplete: () => {
+                target.style.opacity = "1";
+              }});
+            }
+
+            if (target.classList.contains("animate-card")) {
+              gsap.from(target, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                ease: "power3.out",
+                stagger: 0.2,
+              });
+            }
+
+            observer.unobserve(target);
+          }
+        });
+      };
+
+      const observerOptions = {
+        threshold: 0.2,
+      };
+
+      const observer = new IntersectionObserver(animateSection, observerOptions);
+
+      document.querySelectorAll(".animate-heading").forEach((el) => observer.observe(el));
+      document.querySelectorAll(".animate-card").forEach((el) => observer.observe(el));
+    });
+  },
 };
 </script>
 
-<template>
-  <div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-center mb-12">Global Leadership</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div
-        v-for="member in team"
-        :key="member.name"
-        class="text-center bg-white p-6 rounded-lg shadow-md"
-      >
-        <img
-          :src="member.image"
-          alt="Team Member"
-          class="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <h2 class="text-2xl font-bold mt-4">{{ member.name }}</h2>
-        <p class="text-gray-500">{{ member.role }}</p>
-        <p class="mt-4 text-gray-700">{{ member.description }}</p>
-      </div>
-    </div>
-  </div>
-</template>
-
-
-
-
 <style scoped>
-/* General Styles */
-.icon {
-  width: 4rem;
-  height: 4rem;
+
+.text-gray-600 {
+  color: #4b5563; /* Ensure a solid color, not rgba with transparency */
+  opacity: 1; /* Set full opacity */
 }
 
-/* Grid Layout Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr; /* Single column for tablets and smaller screens */
-    gap: 2rem; /* Adjust gap for better spacing */
-  }
-
-  .service-card {
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 2rem; /* Reduce font size for titles on smaller screens */
-  }
-
-  p {
-    font-size: 1rem; /* Adjust paragraph font size */
-  }
-
-  .icon {
-    width: 3rem;
-    height: 3rem; /* Smaller icon size for tablets */
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .grid {
-    gap: 1.5rem; /* Further reduce gap for mobile screens */
-  }
-
   h1 {
-    font-size: 1.5rem; /* Smaller title font size for mobile */
-  }
-
-  p {
-    font-size: 0.875rem; /* Smaller paragraph font size */
-  }
-
-  .icon {
-    width: 2.5rem;
-    height: 2.5rem; /* Smallest icon size for mobile screens */
-  }
-
-  .flex {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
-    align-items: center;
-    text-align: center;
-  }
-
-  .max-w-xs {
-    width: 100%; /* Use full width for mobile screens */
+    font-size: 1.5rem;
   }
 }
 </style>

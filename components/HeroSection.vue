@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
+import { gsap } from 'gsap';
 
 // Define the structure of a Header using an interface
 interface Header {
@@ -32,16 +33,47 @@ const currentHeader = ref(0);
 // Functions to navigate between headers
 const nextHeader = () => {
   currentHeader.value = (currentHeader.value + 1) % headers.value.length;
+  animateContent(); // Trigger animation on next slide
 };
 
 const previousHeader = () => {
   currentHeader.value = (currentHeader.value - 1 + headers.value.length) % headers.value.length;
+  animateContent(); // Trigger animation on previous slide
 };
+
+// GSAP animation function
+const animateContent = () => {
+  nextTick(() => {
+    // Animate title, description, and buttons
+    gsap.from('.fade-up', {
+      opacity: 0,
+      y: 30,
+      duration: 2.0,
+      ease: 'power3.out',
+      stagger: 0.2, // Adds a delay between animations
+       // Resets properties to avoid conflicts
+    });
+
+    // Specific animation for buttons
+    gsap.from('.button-fade', {
+      opacity: 0,
+      y: 30,
+      duration: 2.0,
+      ease: 'power3.out',
+      stagger: 0.2, // Adds a delay between animations
+      clearProps: 'all', // Resets properties to avoid conflicts
+    });
+  });
+};
+
+
+
 
 // Auto-slide functionality
 let autoSlide: ReturnType<typeof setInterval>;
 onMounted(() => {
   autoSlide = setInterval(nextHeader, 4000);
+  animateContent(); // Initial animation
 });
 
 onBeforeUnmount(() => {
@@ -49,76 +81,69 @@ onBeforeUnmount(() => {
 });
 </script>
 
-
 <template>
   <div class="relative -mt-12 z-10">
     <!-- Background Slider -->
-    <img 
+    <img
       class="w-full h-full object-cover -mt-16 transition-all duration-500"
-      :src="headers[currentHeader].image" 
-      alt="Header Image" 
+      :src="headers[currentHeader].image"
+      alt="Header Image"
     />
 
     <!-- Header Content -->
-    <div 
+    <div
       class="absolute inset-0 flex flex-wrap items-start justify-start text-black p-8 mt-24 ml-16 lg:mt-24 lg:ml-16 sm:mt-12 sm:ml-6"
     >
       <div class="max-w-full">
         <!-- Title -->
-        <transition-group 
-          name="pop-up" 
-          tag="div"
+        <h1
+          v-if="headers[currentHeader]"
+          :key="`header-title-${currentHeader}`"
+          class="fade-up text-[#2A3855] text-[67.34px] sm:text-[36px] font-bold mb-2"
+          style="font-family: 'Montserrat', sans-serif; line-height: 1.2;"
         >
-          <h1
-            v-if="headers[currentHeader]"
-            :key="`header-title-${currentHeader}`"
-            class="text-[#2A3855] text-[67.34px] sm:text-[36px] font-bold mb-2"
-            style="font-family: 'Montserrat', sans-serif; line-height: 1.2;"
-          >
-            {{ headers[currentHeader].title }}
-          </h1>
-        </transition-group>
+          {{ headers[currentHeader].title }}
+        </h1>
 
         <!-- Description -->
-        <transition-group 
-          name="pop-up" 
-          tag="div"
-        >
-          <p
-            v-if="headers[currentHeader]"
-            :key="`header-description-${currentHeader}`"
-            class="text-[#2A3855] text-[28.43px] sm:text-[18px] mb-12"
-            style="font-family: 'Open Sans', sans-serif; line-height: 1.4;"
-            v-html="headers[currentHeader].description"
-          ></p>
-        </transition-group>
+        <p
+          v-if="headers[currentHeader]"
+          :key="`header-description-${currentHeader}`"
+          class="fade-up color-primary mt-4 mb-5 lh-2 fs-1 fs-md-2"
+          style="font-family: 'Open Sans', sans-serif; line-height: 1.4;"
+          v-html="headers[currentHeader].description"
+        ></p>
 
         <!-- Buttons -->
         <div>
-          <a 
-            href="#learn-more" 
-            class="bg-[#00274D] text-white font-semibold px-8 py-3 sm:px-4 sm:py-2 rounded-lg shadow-md hover:bg-[#001F3A] transition duration-200 mr-3"
-          >
-            Learn More
-          </a>
-          <a 
-            href="#contact-us" 
-            class="bg-[#ffc107] text-[#212529] font-semibold px-8 py-3 sm:px-4 sm:py-2 rounded-lg shadow-md hover:bg-[#e0a800] transition duration-200"
-          >
-            Contact Us
-          </a>
+          <a
+  href="#learn-more"
+  :key="`learn-more-${currentHeader}`"
+  class=" bg-[#00274D] text-white font-semibold px-8 py-3 sm:px-4 sm:py-2 rounded-lg shadow-md hover:bg-[#001F3A] transition duration-200 mr-3"
+>
+  Learn More
+</a>
+<a
+  href="#contact-us"
+  :key="`contact-us-${currentHeader}`"
+  class=" bg-[#ffc107] text-[#212529] font-semibold px-8 py-3 sm:px-4 sm:py-2 rounded-lg shadow-md hover:bg-[#e0a800] transition duration-200"
+>
+  Contact Us
+</a>
+
+
         </div>
       </div>
     </div>
 
     <!-- Navigation Buttons -->
-    <div 
+    <div
       class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
       @click="previousHeader"
     >
       <i class="fas fa-chevron-left"></i>
     </div>
-    <div 
+    <div
       class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-none text-black w-15 h-15 rounded-full flex items-center justify-center cursor-pointer"
       @click="nextHeader"
     >
@@ -127,63 +152,47 @@ onBeforeUnmount(() => {
   </div>
 </template>
 
-
-
 <style scoped>
 /* Default Styles */
 h1 {
-  font-size: 72px; /* Larger font size for desktop screens */
+  font-size: 72px;
   line-height: 1.2;
 }
 
 p {
-  font-size: 32px; /* Larger description font size */
+  font-size: 32px;
   line-height: 1.4;
 }
 
+/* Buttons */
 a {
-  font-size: 16px; /* Button text size */
+  font-size: 16px;
   padding: 0.75rem 1.25rem;
 }
 
-/* Adjustments for tablet screens */
+/* Responsive Styles */
 @media (max-width: 768px) {
   h1 {
-    font-size: 48px; /* Larger font size for tablets */
+    font-size: 48px;
   }
   p {
-    font-size: 24px; /* Larger description font size for tablets */
+    font-size: 24px;
   }
   a {
-    font-size: 14px; /* Adjust button text size for tablets */
+    font-size: 14px;
   }
 }
 
-/* Adjustments for mobile screens */
 @media (max-width: 480px) {
   h1 {
-    font-size: 28px; /* Reduced font size for better fit */
-    line-height: 1.2; /* Ensure line height works for wrapping */
+    font-size: 28px;
   }
   p {
-    font-size: 16px; /* Reduced description font size */
-    line-height: 1.4; /* Improved readability */
-  }
-  .absolute.inset-0 {
-    padding: 1rem; /* Add padding for mobile view */
-    margin-top: 2rem; /* Add margin to prevent overlap with previous section */
-  }
-  .text-black {
-    max-width: 100%; /* Prevent text from overflowing */
-    word-wrap: break-word; /* Ensure words break properly */
+    font-size: 16px;
   }
   a {
-    font-size: 14px; /* Same button text size as tablets */
-    padding: 0.5rem 1rem; /* Adjust button padding for mobile */
-  }
-  /* Add z-index to ensure buttons are above dropdown */
-  .z-50 {
-    z-index: 100;
+    font-size: 14px;
+    padding: 0.5rem 1rem;
   }
 }
 </style>
