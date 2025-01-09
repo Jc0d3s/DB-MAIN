@@ -9,19 +9,20 @@
       </p>
     </div>
     <!-- Services Section -->
-    <div class="service-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div class="service-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 -gap-2">
       <div class="service-card">
         <div class="icon bg-gray-200 w-16 h-16 mx-auto flex items-center justify-center rounded-full mb-4 text-2xl text-gray-800">
-          📊
+          <img src="/assets/noun-bar-chart-71255.png" alt="Business Consulting Icon" class="w-10 h-10">
         </div>
         <h3 class="text-xl font-semibold text-gray-800">Business Consulting</h3>
         <p class="text-gray-600 mt-2">
           Solution for every business<br />related problem, readily<br /> and skillfully.
         </p>
       </div>
+
       <div class="service-card">
         <div class="icon bg-gray-200 w-16 h-16 mx-auto flex items-center justify-center rounded-full mb-4 text-2xl text-gray-800">
-          ⏰
+          <img src="public\assets\noun-clock-7341157.png" alt="Risk" class="w-10 h-10">
         </div>
         <h3 class="text-xl font-semibold text-gray-800">Risk Management</h3>
         <p class="text-gray-600 mt-2">
@@ -30,7 +31,7 @@
       </div>
       <div class="service-card">
         <div class="icon bg-gray-200 w-16 h-16 mx-auto flex items-center justify-center rounded-full mb-4 text-2xl text-gray-800">
-          💡
+          <img src="public\assets\noun-bulb-5187375.png" alt="Market" class="w-10 h-10">
         </div>
         <h3 class="text-xl font-semibold text-gray-800">Market Research</h3>
         <p class="text-gray-600 mt-2">
@@ -39,7 +40,7 @@
       </div>
       <div class="service-card">
         <div class="icon bg-gray-200 w-16 h-16 mx-auto flex items-center justify-center rounded-full mb-4 text-2xl text-gray-800">
-          🎧
+          <img src="public\assets\noun-headphone-7324349.png" alt="Quality" class="w-10 h-10">
         </div>
         <h3 class="text-xl font-semibold text-gray-800">Quality Services</h3>
         <p class="text-gray-600 mt-2">
@@ -47,8 +48,9 @@
         </p>
       </div>
     </div>
+
   </section>
-  <div class="image-section text-center my-6">
+  <div class="image-section text-center my-6 ">
     <img 
       :src="'/assets/video-screenshot-2.jpg'" 
       :alt="imageAlt" 
@@ -186,7 +188,7 @@
       </div>
     </div>
   </section>
-  <div class="flex flex-col md:flex-row justify-evenly items-center bg-gray-50 p-8 space-y-6 md:space-y-0 md:space-x-4">
+  <div class="flex flex-col md:flex-row justify-evenly items-center bg-gray-50 p-8 space-y-6 gap-8 md:space-y-0 md:space-x-4">
     <div class="flex items-start space-x-4">
       <div class="text-blue-700">
         <i class="fas fa-credit-card text-2xl"></i>
