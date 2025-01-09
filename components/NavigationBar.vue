@@ -117,7 +117,7 @@ export default {
         </div>
 
         <!-- Purchase Button -->
-        <button class="hidden lg:block border-2 border-[#2B3B5C] text-[#2B3B5C] px-4 py-1 rounded-full hover:bg-[#2B3B5C] hover:text-white transition-colors font-montserrat-16px text-[16px] font-semibold">
+        <button class="hidden lg:block border-2 border-[#2B3B5C] text-[#2B3B5C] mr-16 px-4 py-1 rounded-full hover:bg-[#2B3B5C] hover:text-white transition-colors font-montserrat-16px text-[16px] font-semibold">
           Purchase
         </button>
       </div>
